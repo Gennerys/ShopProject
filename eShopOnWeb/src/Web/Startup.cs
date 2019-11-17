@@ -94,6 +94,7 @@ namespace Microsoft.eShopWeb.Web
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<CatalogViewModelService>();
+            services.AddScoped<ICatalogItemViewModelService, CatalogItemViewModelService>();
             services.Configure<CatalogSettings>(Configuration);
             services.AddSingleton<IUriComposer>(new UriComposer(Configuration.Get<CatalogSettings>()));
 
