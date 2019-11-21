@@ -1,5 +1,8 @@
 ﻿using Microsoft.eShopWeb.ApplicationCore.Interfaces;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 using System.Threading.Tasks;
+
 
 namespace Microsoft.eShopWeb.Infrastructure.Services
 {
@@ -7,10 +10,33 @@ namespace Microsoft.eShopWeb.Infrastructure.Services
     // For more details see https://go.microsoft.com/fwlink/?LinkID=532713
     public class EmailSender : IEmailSender
     {
+		public Task Execute(string subject, string message, string email, string apiKey = "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")
+		{
+			var client = new SendGridClient(apiKey);
+			var msg = new SendGridMessage()
+			{
+				From = new EmailAddress("admin@eshop.net", "JOJO MARKET"),
+				Subject = subject,
+				PlainTextContent = message,
+				HtmlContent = message
+			};
+			msg.AddTo(new EmailAddress(email));
+
+			// Disable click tracking.
+			// See https://sendgrid.com/docs/User_Guide/Settings/tracking.html
+			msg.SetClickTracking(false, false);
+
+			return client.SendEmailAsync(msg);
+
+		}
         public Task SendEmailAsync(string email, string subject, string message)
         {
-            // TODO: Wire this up to actual email sending logic via SendGrid, local SMTP, etc.
-            return Task.CompletedTask;
+
+
+			subject = "Welcome beloved customer!";
+			message = "We are happy you've choosen our shop!";
+			// TODO: Wire this up to actual email sending logic via SendGrid, local SMTP, etc.
+			return Execute(subject, message, message);
         }
     }
 }
