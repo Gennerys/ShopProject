@@ -1,0 +1,50 @@
+﻿
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+	<div class="col-md-3 col-sm-10 bg-secondary m-r-1 text-center">
+
+		<!-- sidebar -->
+		<img asp-append-version="true" src="~/images/admin.jpeg" width="100" class="img-thumbnail mt-3" />
+		<h6 class="text-white bottom-border">Admin: @User.Identity.Name</h6>
+		<ul class="navbar-nav flex-column mt-4">
+			<li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 current"><i class="fas fa-home text-light fa-lg mr-3"></i>Dashboard</a></li>
+			@*<li class="nav-item"><a href="~/Identity/Account/Manage" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3"></i>Profile</a></li>
+			<li class="nav-item"><a asp-action="List" asp-controller="Order" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-shopping-cart text-light fa-lg mr-3"></i>Orders</a></li>
+			<li class="nav-item"><a asp-action="Index" asp-controller="Products" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-box text-light fa-lg mr-3"></i>Products</a></li>
+			<li class="nav-item"><a asp-action="Index" asp-controller="Markets" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-store text-light fa-lg mr-3"></i>Markets</a></li>
+			<li class="nav-item"><a asp-action="Index" asp-controller="Categories" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-sitemap text-light fa-lg mr-3"></i>Categories</a></li>*@
+			<li class="nav-item"><a asp-action="Index" asp-controller="Admin" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-users text-light fa-lg mr-3"></i>Users</a></li>
+			<li class="nav-item"><a asp-action="Index" asp-controller="Role" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user-lock text-light fa-lg mr-3"></i>Users Roles</a></li>
+			<li class="nav-item">
+				<form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+					<button type="submit" class=" btn btn-link nav-link text-white p-3 mb-2 sidebar-link">
+						<i class="fas fa-sign-out-alt text-light fa-lg mr-3"></i>
+						Logout
+					</button>
+				</form>
+			</li>
+
+
+		</ul>
+	</div>
+	<!-- end of sidebar -->
+
+
+
+
+
+
+	<div class="col-md-9 col-sm-10 pl-3">
+		@RenderBody()
+	</div>
+</div>
+
+@RenderSection("Scripts", required: false)
+
+
+
+
+

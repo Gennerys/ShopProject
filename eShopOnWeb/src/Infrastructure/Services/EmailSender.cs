@@ -31,8 +31,6 @@ namespace Microsoft.eShopWeb.Infrastructure.Services
 		}
         public Task SendEmailAsync(string email, string subject, string message)
         {
-
-
 			subject = "Welcome beloved customer!";
 			message = "We are happy you've choosen our shop!";
 			// TODO: Wire this up to actual email sending logic via SendGrid, local SMTP, etc.

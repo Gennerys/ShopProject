@@ -9,6 +9,7 @@
     {
       "provider": "unpkg",
       "library": "bootstrap@3.3.7",
+      "destination": "wwwroot/lib/bootstrap/",
       "files": [
         "dist/css/bootstrap.css",
         "dist/css/bootstrap.css.map",
@@ -16,8 +17,7 @@
         "dist/css/bootstrap.min.css.map",
         "dist/js/bootstrap.js",
         "dist/js/bootstrap.min.js"
-      ],
-      "destination": "wwwroot/lib/bootstrap/"
+      ]
     },
     {
       "library": "jquery-validation-unobtrusive@3.2.10",
@@ -38,11 +38,15 @@
     {
       "provider": "unpkg",
       "library": "@aspnet/signalr@1.0.3",
-      "files": [    
+      "destination": "wwwroot/lib/@aspnet/signalr/",
+      "files": [
         "dist/browser/signalr.js",
         "dist/browser/signalr.min.js"
-      ],
-      "destination": "wwwroot/lib/@aspnet/signalr/"
+      ]
+    },
+    {
+      "library": "qrcode-generator@1.4.4",
+      "destination": "wwwroot/qrcode-generator/"
     }
   ]
 }
