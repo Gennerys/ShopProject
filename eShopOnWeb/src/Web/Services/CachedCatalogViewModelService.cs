@@ -50,5 +50,10 @@ namespace Microsoft.eShopWeb.Web.Services
                 return await _catalogViewModelService.GetTypes();
             });
         }
+
+        public bool AddItem(CatalogItemViewModel catalogItemViewModel)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -82,6 +82,8 @@ namespace Microsoft.eShopWeb.Web.Services
             return vm;
         }
 
+    
+
         public async Task<IEnumerable<SelectListItem>> GetBrands()
         {
             _logger.LogInformation("GetBrands called.");
@@ -113,6 +115,17 @@ namespace Microsoft.eShopWeb.Web.Services
             }
 
             return items;
+        }
+
+        public bool AddItem(CatalogItemViewModel catalogItemViewModel)
+        {
+            _itemRepository.AddAsync(
+                new CatalogItem()
+                {
+                    Name = catalogItemViewModel.Name,
+                    Price = catalogItemViewModel.Price
+                });
+            return true;
         }
     }
 }
